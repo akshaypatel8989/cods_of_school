@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Master Digital Marketing – Complete Course 2024</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ── Reset & Variables ──────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:    #faf8f3;
+  --white:    #ffffff;
+  --ink:      #1a1625;
+  --ink-m:    #4a4560;
+  --ink-l:    #9490a8;
+  --indigo:   #4338ca;
+  --indigo-l: #6366f1;
+  --indigo-xl:#eef2ff;
+  --gold:     #f59e0b;
+  --gold-l:   #fef3c7;
+  --green:    #059669;
+  --green-l:  #d1fae5;
+  --red:      #dc2626;
+  --border:   #e8e5f0;
+  --shadow:   0 2px 8px rgba(26,22,37,.06);
+  --shadow-m: 0 8px 32px rgba(26,22,37,.1);
+  --shadow-l: 0 20px 60px rgba(26,22,37,.14);
+  --display:  'Playfair Display', Georgia, serif;
+  --body:     'DM Sans', -apple-system, sans-serif;
+  --radius:   12px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--cream);color:var(--ink);line-height:1.6;font-size:15px}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+
+/* ── Nav ────────────────────────────────────────────────────────────────── */
+nav{
+  background:var(--white);border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:200;
+}
+.nav-inner{
+  max-width:1200px;margin:0 auto;padding:0 2rem;
+  display:flex;align-items:center;justify-content:space-between;height:60px;gap:1rem;
+}
+.logo{font-family:var(--display);font-size:20px;color:var(--indigo);font-weight:800}
+.logo span{color:var(--ink)}
+.nav-links{display:flex;align-items:center;gap:1.75rem}
+.nav-links a{font-size:13px;font-weight:500;color:var(--ink-m);transition:color .2s}
+.nav-links a:hover{color:var(--indigo)}
+.nav-right{display:flex;align-items:center;gap:.75rem}
+.btn-sm{padding:.45rem 1.1rem;border-radius:6px;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:all .2s}
+.btn-ghost-sm{background:transparent;color:var(--indigo);border:1.5px solid var(--indigo)}
+.btn-ghost-sm:hover{background:var(--indigo-xl)}
+.btn-fill-sm{background:var(--indigo);color:#fff;border:1.5px solid var(--indigo)}
+.btn-fill-sm:hover{background:#3730a3}
+
+/* ── Hero Banner ────────────────────────────────────────────────────────── */
+.hero{
+  background:linear-gradient(135deg,#1a1625 0%,#2d1b69 60%,#1e1b4b 100%);
+  color:#fff;padding:4rem 0 0;overflow:hidden;position:relative;
+}
+.hero::after{
+  content:'';position:absolute;
+  bottom:0;left:0;right:0;height:80px;
+  background:linear-gradient(to bottom,transparent,var(--cream));
+  pointer-events:none;
+}
+.hero-grid{
+  max-width:1200px;margin:0 auto;padding:0 2rem;
+  display:grid;grid-template-columns:1fr 380px;gap:4rem;align-items:start;
+}
+.hero-breadcrumb{
+  display:flex;align-items:center;gap:.5rem;
+  font-size:12px;color:rgba(255,255,255,.5);margin-bottom:1.25rem;
+}
+.hero-breadcrumb span{color:rgba(255,255,255,.25)}
+.course-badges{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:1.25rem}
+.badge{
+  display:inline-flex;align-items:center;gap:.35rem;
+  padding:.25rem .75rem;border-radius:20px;
+  font-size:11px;font-weight:600;letter-spacing:.3px;
+}
+.badge-gold{background:rgba(245,158,11,.2);color:#fcd34d;border:1px solid rgba(245,158,11,.3)}
+.badge-green{background:rgba(5,150,105,.2);color:#6ee7b7;border:1px solid rgba(5,150,105,.3)}
+.badge-blue{background:rgba(99,102,241,.25);color:#c7d2fe;border:1px solid rgba(99,102,241,.3)}
+.hero h1{
+  font-family:var(--display);
+  font-size:clamp(28px,4vw,46px);
+  font-weight:800;line-height:1.15;
+  letter-spacing:-.5px;margin-bottom:1.1rem;
+  color:#fff;
+}
+.hero h1 em{
+  font-style:normal;
+  background:linear-gradient(135deg,#fcd34d,#f97316);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-desc{
+  font-size:15px;color:rgba(255,255,255,.72);line-height:1.8;margin-bottom:1.75rem;max-width:560px;
+}
+.hero-meta{display:flex;flex-wrap:wrap;gap:1.25rem;margin-bottom:1.75rem}
+.meta-item{display:flex;align-items:center;gap:.4rem;font-size:13px;color:rgba(255,255,255,.65)}
+.meta-item strong{color:#fff;font-weight:600}
+.meta-icon{font-size:15px}
+.hero-instructor{
+  display:flex;align-items:center;gap:.85rem;
+  padding:1rem 1.25rem;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:10px;margin-bottom:2.5rem;
+  backdrop-filter:blur(8px);
+}
+.instr-avatar{
+  width:46px;height:46px;border-radius:50%;
+  background:linear-gradient(135deg,#6366f1,#f59e0b);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-size:18px;font-weight:800;color:#fff;flex-shrink:0;
+}
+.instr-info p{font-size:11px;color:rgba(255,255,255,.5);margin-bottom:2px}
+.instr-info strong{font-size:14px;font-weight:600;color:#fff}
+.instr-info span{font-size:12px;color:rgba(255,255,255,.55)}
+.hero-stats-row{
+  display:flex;gap:2.5rem;padding-top:1.5rem;
+  border-top:1px solid rgba(255,255,255,.1);margin-bottom:2rem;
+}
+.hero-stat strong{
+  display:block;font-family:var(--display);font-size:26px;font-weight:700;color:#fff;line-height:1;
+}
+.hero-stat span{font-size:11px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.5px}
+
+/* ── Sticky Enroll Card ─────────────────────────────────────────────────── */
+.enroll-card{
+  background:var(--white);border-radius:16px;
+  box-shadow:var(--shadow-l);overflow:hidden;
+  position:sticky;top:72px;margin-bottom:2rem;
+}
+.course-preview{
+  height:200px;background:linear-gradient(135deg,#2d1b69,#4338ca);
+  display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;
+}
+.play-btn{
+  width:56px;height:56px;border-radius:50%;
+  background:rgba(255,255,255,.15);
+  border:2px solid rgba(255,255,255,.4);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:20px;cursor:pointer;
+  transition:all .2s;backdrop-filter:blur(4px);
+}
+.play-btn:hover{background:rgba(255,255,255,.25);transform:scale(1.08)}
+.preview-tag{
+  position:absolute;bottom:10px;left:50%;transform:translateX(-50%);
+  font-size:11px;color:rgba(255,255,255,.7);letter-spacing:.5px;
+}
+.enroll-body{padding:1.5rem}
+.price-row{display:flex;align-items:baseline;gap:.75rem;margin-bottom:.35rem}
+.price-main{font-family:var(--display);font-size:34px;font-weight:800;color:var(--ink)}
+.price-old{font-size:17px;color:var(--ink-l);text-decoration:line-through}
+.price-off{
+  font-size:12px;font-weight:700;padding:.2rem .55rem;
+  background:#dcfce7;color:var(--green);border-radius:4px;
+}
+.timer{
+  display:flex;align-items:center;gap:.5rem;
+  font-size:12px;color:var(--red);font-weight:600;margin-bottom:1.25rem;
+}
+.timer-count{
+  display:flex;gap:.25rem;align-items:center;
+  font-family:var(--display);font-size:14px;font-weight:700;color:var(--red);
+}
+.enroll-btn{
+  width:100%;padding:1rem;
+  background:linear-gradient(135deg,var(--indigo),#7c3aed);
+  color:#fff;border:none;border-radius:10px;
+  font-size:16px;font-weight:700;cursor:pointer;
+  transition:all .2s;margin-bottom:.75rem;
+  box-shadow:0 6px 20px rgba(67,56,202,.35);
+}
+.enroll-btn:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(67,56,202,.45)}
+.try-btn{
+  width:100%;padding:.8rem;
+  background:transparent;color:var(--indigo);
+  border:1.5px solid var(--indigo);border-radius:10px;
+  font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;margin-bottom:1rem;
+}
+.try-btn:hover{background:var(--indigo-xl)}
+.enroll-guarantee{
+  display:flex;align-items:center;gap:.6rem;
+  font-size:12px;color:var(--ink-m);
+  padding:1rem;background:var(--cream);border-radius:8px;margin-bottom:1rem;
+}
+.enroll-includes{margin-top:1rem}
+.enroll-includes h4{font-size:12px;font-weight:700;color:var(--ink-m);text-transform:uppercase;letter-spacing:.5px;margin-bottom:.6rem}
+.include-row{display:flex;align-items:center;gap:.6rem;font-size:13px;color:var(--ink-m);padding:.3rem 0}
+
+/* ── Main Content Layout ────────────────────────────────────────────────── */
+.course-layout{
+  max-width:1200px;margin:0 auto;padding:3rem 2rem;
+  display:grid;grid-template-columns:1fr 380px;gap:3rem;align-items:start;
+}
+.course-main{}
+
+/* ── Learning Outcomes ──────────────────────────────────────────────────── */
+.section-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;
+  box-shadow:var(--shadow);
+}
+.section-card h2{
+  font-family:var(--display);font-size:22px;font-weight:800;
+  letter-spacing:-.3px;margin-bottom:1.25rem;
+}
+.outcomes-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:.5rem;
+}
+.outcome-item{
+  display:flex;align-items:flex-start;gap:.65rem;
+  font-size:14px;color:var(--ink-m);padding:.5rem 0;
+}
+.check-icon{
+  width:20px;height:20px;border-radius:50%;
+  background:var(--green-l);color:var(--green);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;flex-shrink:0;margin-top:1px;font-weight:700;
+}
+
+/* ── Curriculum Accordion ───────────────────────────────────────────────── */
+.curriculum-header{
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;margin-bottom:1.25rem;
+}
+.curriculum-summary{font-size:13px;color:var(--ink-m)}
+.expand-all{
+  font-size:12px;font-weight:600;color:var(--indigo);
+  background:none;border:none;cursor:pointer;
+  text-decoration:underline;text-underline-offset:3px;
+}
+.module{border:1px solid var(--border);border-radius:10px;margin-bottom:.6rem;overflow:hidden}
+.module-header{
+  display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;
+  background:var(--white);cursor:pointer;
+  transition:background .2s;user-select:none;
+}
+.module-header:hover{background:#f9f8fe}
+.module-num{
+  width:32px;height:32px;border-radius:8px;
+  background:var(--indigo-xl);color:var(--indigo);
+  font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;font-family:var(--display);
+}
+.module-title{flex:1;font-weight:600;font-size:14px}
+.module-meta{font-size:12px;color:var(--ink-l);white-space:nowrap}
+.module-toggle{
+  font-size:16px;color:var(--ink-l);transition:transform .3s;flex-shrink:0;
+}
+.module.open .module-toggle{transform:rotate(180deg)}
+.module-lessons{
+  max-height:0;overflow:hidden;
+  background:#fdfcff;
+  transition:max-height .4s cubic-bezier(.4,0,.2,1);
+}
+.module.open .module-lessons{max-height:800px}
+.lesson{
+  display:flex;align-items:center;gap:1rem;
+  padding:.75rem 1.25rem .75rem 4.25rem;
+  border-top:1px solid var(--border);
+  transition:background .15s;
+}
+.lesson:hover{background:#f5f3ff}
+.lesson-icon{font-size:14px;flex-shrink:0;width:20px;text-align:center}
+.lesson-name{flex:1;font-size:13px;color:var(--ink-m)}
+.lesson-type{
+  font-size:11px;padding:.15rem .55rem;border-radius:4px;font-weight:600;
+}
+.type-video{background:#ede9fe;color:#7c3aed}
+.type-quiz{background:#fef3c7;color:#d97706}
+.type-project{background:#dcfce7;color:#059669}
+.type-reading{background:#dbeafe;color:#2563eb}
+.lesson-dur{font-size:12px;color:var(--ink-l);min-width:50px;text-align:right}
+.lesson.preview{cursor:pointer}
+.preview-label{
+  font-size:10px;font-weight:700;color:var(--indigo);
+  background:var(--indigo-xl);padding:.15rem .5rem;border-radius:3px;
+}
+
+/* ── Instructor ─────────────────────────────────────────────────────────── */
+.instructor-card{display:flex;gap:1.5rem;align-items:flex-start}
+.instr-big-avatar{
+  width:80px;height:80px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,#6366f1,#f59e0b);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--display);font-size:30px;font-weight:800;color:#fff;
+}
+.instr-name{font-family:var(--display);font-size:20px;font-weight:800;margin-bottom:.25rem}
+.instr-title{font-size:13px;color:var(--indigo);font-weight:600;margin-bottom:.75rem}
+.instr-stats{display:flex;gap:1.5rem;margin-bottom:1rem}
+.instr-stat{font-size:13px;color:var(--ink-m)}
+.instr-stat strong{color:var(--ink);font-weight:700;display:block;font-size:15px}
+.instr-bio{font-size:14px;color:var(--ink-m);line-height:1.8}
+
+/* ── Reviews ────────────────────────────────────────────────────────────── */
+.rating-summary{display:flex;gap:2rem;align-items:center;margin-bottom:2rem}
+.rating-big{
+  text-align:center;flex-shrink:0;
+  padding:1.5rem 2rem;
+  background:linear-gradient(135deg,#fffbeb,#fef3c7);
+  border-radius:12px;border:1px solid #fde68a;
+}
+.rating-num{font-family:var(--display);font-size:52px;font-weight:800;color:var(--gold);line-height:1}
+.stars-row{font-size:18px;color:var(--gold);letter-spacing:2px;margin:.3rem 0}
+.rating-count{font-size:12px;color:var(--ink-l)}
+.rating-bars{flex:1}
+.rating-bar-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem}
+.bar-stars{font-size:12px;color:var(--ink-m);min-width:30px;text-align:right}
+.bar-track{flex:1;height:8px;background:var(--border);border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;background:var(--gold);border-radius:4px;transition:width .8s ease}
+.bar-pct{font-size:12px;color:var(--ink-l);min-width:32px}
+.reviews-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.review-card{
+  background:var(--cream);border:1px solid var(--border);
+  border-radius:10px;padding:1.25rem;
+}
+.review-top{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem}
+.review-avatar{
+  width:38px;height:38px;border-radius:50%;
+  background:var(--indigo-xl);color:var(--indigo);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:14px;flex-shrink:0;
+}
+.review-name{font-weight:700;font-size:14px}
+.review-stars{font-size:13px;color:var(--gold);letter-spacing:1px}
+.review-date{font-size:11px;color:var(--ink-l);margin-top:1px}
+.review-text{font-size:13px;color:var(--ink-m);line-height:1.7}
+.helpful{font-size:11px;color:var(--ink-l);margin-top:.75rem;cursor:pointer}
+.helpful span{color:var(--indigo);font-weight:600}
+
+/* ── Skills / Tags ──────────────────────────────────────────────────────── */
+.skills-wrap{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.75rem}
+.skill-tag{
+  padding:.35rem .85rem;border-radius:6px;
+  font-size:12px;font-weight:600;
+  background:var(--indigo-xl);color:var(--indigo);
+  border:1px solid rgba(99,102,241,.2);
+}
+
+/* ── Progress Card ──────────────────────────────────────────────────────── */
+.progress-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.5rem;margin-bottom:1.25rem;
+  box-shadow:var(--shadow);
+}
+.progress-card h3{font-family:var(--display);font-size:16px;font-weight:700;margin-bottom:1rem}
+.progress-bar-wrap{height:10px;background:var(--border);border-radius:5px;margin-bottom:.5rem;overflow:hidden}
+.progress-bar-fill{height:100%;background:linear-gradient(to right,var(--indigo),#7c3aed);border-radius:5px;width:0;transition:width 1.2s ease .3s}
+.progress-label{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-m)}
+.module-progress{margin-top:1rem}
+.mp-row{display:flex;align-items:center;gap:.75rem;padding:.4rem 0}
+.mp-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.mp-done{background:var(--green)}
+.mp-active{background:var(--indigo);box-shadow:0 0 0 3px rgba(99,102,241,.25)}
+.mp-todo{background:var(--border)}
+.mp-name{flex:1;font-size:13px;color:var(--ink-m)}
+.mp-check{font-size:12px;color:var(--green)}
+
+/* ── Sidebar Bottom Cards ───────────────────────────────────────────────── */
+.share-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1.25rem;margin-bottom:1.25rem;
+  box-shadow:var(--shadow);
+}
+.share-card h4{font-size:13px;font-weight:700;margin-bottom:.75rem}
+.share-btns{display:flex;gap:.5rem}
+.share-btn{
+  flex:1;padding:.5rem;border-radius:7px;font-size:12px;font-weight:600;
+  border:1px solid var(--border);background:var(--white);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:.35rem;
+  transition:all .2s;color:var(--ink-m);
+}
+.share-btn:hover{border-color:var(--indigo);color:var(--indigo);background:var(--indigo-xl)}
+
+/* ── Requirements ───────────────────────────────────────────────────────── */
+.req-list{list-style:none}
+.req-list li{
+  display:flex;align-items:flex-start;gap:.6rem;
+  font-size:14px;color:var(--ink-m);padding:.4rem 0;
+}
+.req-list li::before{content:'→';color:var(--indigo);font-weight:700;flex-shrink:0}
+
+/* ── Course Tabs ────────────────────────────────────────────────────────── */
+.course-tabs{
+  display:flex;gap:0;margin-bottom:0;
+  border-bottom:2px solid var(--border);
+  position:sticky;top:60px;z-index:50;
+  background:var(--cream);padding-top:.5rem;
+}
+.tab-btn{
+  padding:.75rem 1.25rem;font-size:14px;font-weight:600;
+  color:var(--ink-l);border:none;background:transparent;cursor:pointer;
+  border-bottom:2px solid transparent;margin-bottom:-2px;transition:all .2s;
+}
+.tab-btn:hover{color:var(--ink-m)}
+.tab-btn.active{color:var(--indigo);border-bottom-color:var(--indigo)}
+
+/* ── Footer ─────────────────────────────────────────────────────────────── */
+footer{
+  background:var(--ink);color:rgba(255,255,255,.5);
+  padding:2rem 0;text-align:center;font-size:13px;margin-top:2rem;
+}
+footer a{color:rgba(255,255,255,.6);margin:0 .75rem}
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr;padding-bottom:2rem}
+  .enroll-card-hero{display:block}
+  .course-layout{grid-template-columns:1fr}
+  .course-sidebar{order:-1}
+  .enroll-card{position:relative;top:0}
+  .outcomes-grid{grid-template-columns:1fr}
+  .reviews-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .nav-links{display:none}
+  .hero h1{font-size:26px}
+  .hero-stats-row{gap:1.5rem}
+  .instructor-card{flex-direction:column}
+  .rating-summary{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<!-- ── Nav ──────────────────────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Learn<span>Digi</span></div>
+    <div class="nav-links">
+      <a href="#">Courses</a>
+      <a href="#">My Learning</a>
+      <a href="#">Certifications</a>
+      <a href="#">Community</a>
+    </div>
+    <div class="nav-right">
+      <button class="btn-sm btn-ghost-sm">Log In</button>
+      <button class="btn-sm btn-fill-sm">Sign Up Free</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ── Hero ─────────────────────────────────────────────────────────────────── -->
+<div class="hero">
+  <div class="hero-grid">
+    <!-- Left -->
+    <div>
+      <div class="hero-breadcrumb">
+        <a href="#">Home</a><span>›</span>
+        <a href="#">Marketing</a><span>›</span>
+        <span style="color:rgba(255,255,255,.8)">Digital Marketing</span>
+      </div>
+      <div class="course-badges">
+        <span class="badge badge-gold">⭐ Bestseller</span>
+        <span class="badge badge-green">✓ Updated Nov 2024</span>
+        <span class="badge badge-blue">🎓 Certificate Included</span>
+      </div>
+      <h1>Master Digital Marketing:<br/><em>From Zero to Expert</em></h1>
+      <p class="hero-desc">
+        The most comprehensive digital marketing course in India. Learn SEO, Google Ads, Meta Ads, content marketing, email automation, analytics, and build a complete campaign from scratch.
+      </p>
+      <div class="hero-meta">
+        <div class="meta-item"><span class="meta-icon">⭐</span><strong>4.9</strong> rating</div>
+        <div class="meta-item"><span class="meta-icon">👥</span><strong>42,800+</strong> students</div>
+        <div class="meta-item"><span class="meta-icon">🕐</span><strong>68 hours</strong> of video</div>
+        <div class="meta-item"><span class="meta-icon">🌐</span>English · Hindi subtitles</div>
+        <div class="meta-item"><span class="meta-icon">📱</span>Mobile & Desktop</div>
+      </div>
+      <div class="hero-instructor">
+        <div class="instr-avatar">AM</div>
+        <div class="instr-info">
+          <p>Created by</p>
+          <strong>Arjun Mehta</strong>
+          <span> · Senior Digital Marketing Strategist, Ex-Google</span>
+        </div>
+      </div>
+      <div class="hero-stats-row">
+        <div class="hero-stat"><strong>68h</strong><span>Video Content</span></div>
+        <div class="hero-stat"><strong>12</strong><span>Real Projects</span></div>
+        <div class="hero-stat"><strong>180+</strong><span>Lectures</span></div>
+        <div class="hero-stat"><strong>Lifetime</strong><span>Access</span></div>
+      </div>
+    </div>
+
+    <!-- Right — enrolment card visible on desktop hero -->
+    <div>
+      <div class="enroll-card">
+        <div class="course-preview">
+          <div class="play-btn">▶</div>
+          <div class="preview-tag">▶ Preview this course free</div>
+        </div>
+        <div class="enroll-body">
+          <div class="price-row">
+            <div class="price-main">₹799</div>
+            <div class="price-old">₹4,999</div>
+            <div class="price-off">84% OFF</div>
+          </div>
+          <div class="timer">
+            ⏱ <strong>2 days</strong> left at this price!
+            <span class="timer-count" id="timer">23:47:12</span>
+          </div>
+          <button class="enroll-btn" onclick="this.textContent='✓ Enrolled! Check Your Email'">Enroll Now — ₹799</button>
+          <button class="try-btn">Try 7 Days Free</button>
+          <div class="enroll-guarantee">
+            <span style="font-size:20px">🛡️</span>
+            <span><strong>30-day money-back guarantee.</strong> No questions asked.</span>
+          </div>
+          <div class="enroll-includes">
+            <h4>This course includes</h4>
+            <div class="include-row">📹 68 hours on-demand video</div>
+            <div class="include-row">📄 42 downloadable resources</div>
+            <div class="include-row">🖥️ Full-stack live projects</div>
+            <div class="include-row">📱 Mobile + TV access</div>
+            <div class="include-row">🏆 Certificate of completion</div>
+            <div class="include-row">💬 Community forum access</div>
+            <div class="include-row">🔁 Lifetime access</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Course Body ────────────────────────────────────────────────────────────── -->
+<div class="course-layout">
+  <!-- Main Content -->
+  <div class="course-main">
+
+    <!-- Tabs -->
+    <div class="course-tabs" id="courseTabs">
+      <button class="tab-btn active" onclick="scrollTo('#overview')">Overview</button>
+      <button class="tab-btn" onclick="scrollTo('#curriculum')">Curriculum</button>
+      <button class="tab-btn" onclick="scrollTo('#instructor')">Instructor</button>
+      <button class="tab-btn" onclick="scrollTo('#reviews')">Reviews</button>
+    </div>
+
+    <!-- Learning Outcomes -->
+    <div class="section-card" id="overview" style="margin-top:1.5rem">
+      <h2>What you'll learn</h2>
+      <div class="outcomes-grid">
+        <div class="outcome-item"><div class="check-icon">✓</div>Build a full digital marketing strategy from scratch</div>
+        <div class="outcome-item"><div class="check-icon">✓</div>Master Google Ads (Search, Display, Shopping, YouTube)</div>
+        <div class="outcome-item"><div class="check-icon">✓</div>Run profitable Meta (Facebook & Instagram) Ads campaigns</div>
+        <div class="outcome-item"><div class="check-icon">✓</div>Rank websites on page 1 of Google with advanced SEO</div>
+        <div class="outcome-item"><div class="check-icon">✓</div>Write compelling ad copy that converts</div>
+        <div class="outcome-item"><div class="check-icon">✓</div>Set up email marketing automation sequences</div>
+        <div class="outcome-item"><div class="check-icon">✓</div>Analyse campaign data with Google Analytics 4</div>
+        <div class="outcome-item"><div class="check-icon">✓</div>Create content strategies for 5+ social platforms</div>
+        <div class="outcome-item"><div class="check-icon">✓</div>Build high-converting landing pages</div>
+        <div class="outcome-item"><div class="check-icon">✓</div>Understand marketing funnels and customer journeys</div>
+        <div class="outcome-item"><div class="check-icon">✓</div>Plan budgets and calculate ROAS profitably</div>
+        <div class="outcome-item"><div class="check-icon">✓</div>Freelance or get a job as a digital marketing specialist</div>
+      </div>
+    </div>
+
+    <!-- Requirements -->
+    <div class="section-card">
+      <h2>Requirements</h2>
+      <ul class="req-list">
+        <li>No prior marketing experience needed — this course starts from absolute basics</li>
+        <li>A computer or laptop with internet connection</li>
+        <li>Google account (for Ads and Analytics setup)</li>
+        <li>Willingness to practice — theory + hands-on projects included</li>
+      </ul>
+    </div>
+
+    <!-- Curriculum -->
+    <div class="section-card" id="curriculum">
+      <div class="curriculum-header">
+        <div>
+          <h2 style="margin-bottom:.35rem">Course Curriculum</h2>
+          <div class="curriculum-summary">12 sections · 184 lectures · 68h 22m total length</div>
+        </div>
+        <button class="expand-all" id="expandBtn" onclick="toggleAll()">Expand All</button>
+      </div>
+
+      <!-- Modules -->
+      <div id="curriculum-list">
+
+        <div class="module open">
+          <div class="module-header" onclick="toggleModule(this)">
+            <div class="module-num">01</div>
+            <div class="module-title">Introduction to Digital Marketing</div>
+            <div class="module-meta">8 lectures · 2h 15m</div>
+            <div class="module-toggle">▼</div>
+          </div>
+          <div class="module-lessons">
+            <div class="lesson preview"><div class="lesson-icon">▶</div><div class="lesson-name">What is Digital Marketing? An Overview</div><div class="preview-label">FREE</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">18:24</div></div>
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">The Digital Marketing Ecosystem</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">22:10</div></div>
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">Understanding Marketing Funnels & Customer Journey</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">28:45</div></div>
+            <div class="lesson"><div class="lesson-icon">📄</div><div class="lesson-name">Digital Marketing Glossary &amp; Terminology</div><span class="lesson-type type-reading">Reading</span><div class="lesson-dur">10 min</div></div>
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">Setting SMART Marketing Goals</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">15:30</div></div>
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">Building Your First Marketing Strategy</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">31:00</div></div>
+            <div class="lesson"><div class="lesson-icon">🎯</div><div class="lesson-name">Quiz: Digital Marketing Fundamentals</div><span class="lesson-type type-quiz">Quiz</span><div class="lesson-dur">15 min</div></div>
+            <div class="lesson"><div class="lesson-icon">🔨</div><div class="lesson-name">Project: Create Your Marketing Strategy Document</div><span class="lesson-type type-project">Project</span><div class="lesson-dur">1h</div></div>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="module-header" onclick="toggleModule(this)">
+            <div class="module-num">02</div>
+            <div class="module-title">SEO – Search Engine Optimization (Complete)</div>
+            <div class="module-meta">22 lectures · 9h 40m</div>
+            <div class="module-toggle">▼</div>
+          </div>
+          <div class="module-lessons">
+            <div class="lesson preview"><div class="lesson-icon">▶</div><div class="lesson-name">How Search Engines Work</div><div class="preview-label">FREE</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">20:15</div></div>
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">Keyword Research Masterclass</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">45:00</div></div>
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">On-Page SEO: Title Tags, Meta, H Tags</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">38:20</div></div>
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">Technical SEO: Site Speed, Core Web Vitals</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">52:10</div></div>
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">Link Building &amp; Off-Page SEO</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">1h 5m</div></div>
+            <div class="lesson"><div class="lesson-icon">🔨</div><div class="lesson-name">Project: Full SEO Audit of a Real Website</div><span class="lesson-type type-project">Project</span><div class="lesson-dur">2h</div></div>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="module-header" onclick="toggleModule(this)">
+            <div class="module-num">03</div>
+            <div class="module-title">Google Ads – Search, Display & YouTube</div>
+            <div class="module-meta">24 lectures · 11h 20m</div>
+            <div class="module-toggle">▼</div>
+          </div>
+          <div class="module-lessons">
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">Google Ads Account Structure &amp; Setup</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">35:00</div></div>
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">Search Campaigns: Keywords, Match Types</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">58:00</div></div>
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">Display Campaigns &amp; Retargeting</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">42:30</div></div>
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">Shopping Ads for E-Commerce</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">55:15</div></div>
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">YouTube Video Ads Masterclass</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">1h 10m</div></div>
+            <div class="lesson"><div class="lesson-icon">🔨</div><div class="lesson-name">Project: Live Google Ads Campaign (₹5K budget)</div><span class="lesson-type type-project">Project</span><div class="lesson-dur">3h</div></div>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="module-header" onclick="toggleModule(this)">
+            <div class="module-num">04</div>
+            <div class="module-title">Meta Ads – Facebook & Instagram</div>
+            <div class="module-meta">18 lectures · 8h 45m</div>
+            <div class="module-toggle">▼</div>
+          </div>
+          <div class="module-lessons">
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">Facebook Business Manager Setup</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">22:00</div></div>
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">Audience Targeting Deep Dive</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">55:00</div></div>
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">Ad Creatives: Images, Videos, Carousels</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">48:30</div></div>
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">Instagram Reels Ads Strategy</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">40:00</div></div>
+            <div class="lesson"><div class="lesson-icon">🔨</div><div class="lesson-name">Project: Launch Your First Meta Campaign</div><span class="lesson-type type-project">Project</span><div class="lesson-dur">2h</div></div>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="module-header" onclick="toggleModule(this)">
+            <div class="module-num">05</div>
+            <div class="module-title">Content Marketing & Social Media Strategy</div>
+            <div class="module-meta">16 lectures · 6h 30m</div>
+            <div class="module-toggle">▼</div>
+          </div>
+          <div class="module-lessons">
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">Content Strategy Framework</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">32:00</div></div>
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">Blog Writing for SEO &amp; Conversions</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">45:00</div></div>
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">LinkedIn Marketing for B2B</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">38:00</div></div>
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">YouTube Channel Growth Strategy</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">50:00</div></div>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="module-header" onclick="toggleModule(this)">
+            <div class="module-num">06</div>
+            <div class="module-title">Email Marketing & Automation</div>
+            <div class="module-meta">14 lectures · 5h 20m</div>
+            <div class="module-toggle">▼</div>
+          </div>
+          <div class="module-lessons">
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">Email Marketing Fundamentals</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">28:00</div></div>
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">Building Your Email List from Zero</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">40:00</div></div>
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">Welcome Sequence &amp; Drip Campaigns</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">55:00</div></div>
+            <div class="lesson"><div class="lesson-icon">🔨</div><div class="lesson-name">Project: Build a Complete Email Funnel</div><span class="lesson-type type-project">Project</span><div class="lesson-dur">2h</div></div>
+          </div>
+        </div>
+
+        <div class="module">
+          <div class="module-header" onclick="toggleModule(this)">
+            <div class="module-num">07</div>
+            <div class="module-title">Analytics, Reporting & Data-Driven Decisions</div>
+            <div class="module-meta">12 lectures · 4h 50m</div>
+            <div class="module-toggle">▼</div>
+          </div>
+          <div class="module-lessons">
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">Google Analytics 4 Complete Setup</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">45:00</div></div>
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">Reading Reports &amp; KPIs That Matter</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">38:00</div></div>
+            <div class="lesson"><div class="lesson-icon">▶</div><div class="lesson-name">A/B Testing for Conversions</div><span class="lesson-type type-video">Video</span><div class="lesson-dur">50:00</div></div>
+          </div>
+        </div>
+
+      </div><!-- end curriculum-list -->
+    </div>
+
+    <!-- Instructor -->
+    <div class="section-card" id="instructor">
+      <h2>About Your Instructor</h2>
+      <div class="instructor-card">
+        <div class="instr-big-avatar">AM</div>
+        <div>
+          <div class="instr-name">Arjun Mehta</div>
+          <div class="instr-title">Senior Digital Marketing Strategist · Ex-Google · Mentor</div>
+          <div class="instr-stats">
+            <div class="instr-stat"><strong>⭐ 4.9</strong>Instructor Rating</div>
+            <div class="instr-stat"><strong>42,800+</strong>Students</div>
+            <div class="instr-stat"><strong>12</strong>Courses</div>
+            <div class="instr-stat"><strong>11 yrs</strong>Experience</div>
+          </div>
+          <p class="instr-bio">
+            Arjun spent 6 years at Google India as a digital marketing consultant, helping 200+ brands scale their online presence. He has managed over ₹50 Cr in ad spend across industries including e-commerce, edtech, and FMCG. After leaving Google, he founded his own agency and has since trained over 42,000 students through online courses and corporate workshops.
+          </p>
+          <p class="instr-bio" style="margin-top:.75rem">
+            His teaching style focuses on <strong>real campaigns with real budgets</strong> — no fluff, only frameworks that work in the Indian market today.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills You'll Gain -->
+    <div class="section-card">
+      <h2>Skills You'll Gain</h2>
+      <p style="font-size:14px;color:var(--ink-m);margin-bottom:1rem">These in-demand skills will strengthen your professional profile</p>
+      <div class="skills-wrap">
+        <span class="skill-tag">SEO</span><span class="skill-tag">Google Ads</span>
+        <span class="skill-tag">Meta Ads</span><span class="skill-tag">Content Marketing</span>
+        <span class="skill-tag">Email Marketing</span><span class="skill-tag">Google Analytics 4</span>
+        <span class="skill-tag">Copywriting</span><span class="skill-tag">Social Media Marketing</span>
+        <span class="skill-tag">Keyword Research</span><span class="skill-tag">CRO</span>
+        <span class="skill-tag">Marketing Funnels</span><span class="skill-tag">YouTube Ads</span>
+        <span class="skill-tag">LinkedIn Marketing</span><span class="skill-tag">Retargeting</span>
+        <span class="skill-tag">A/B Testing</span><span class="skill-tag">ROAS Optimisation</span>
+      </div>
+    </div>
+
+    <!-- Reviews -->
+    <div class="section-card" id="reviews">
+      <h2>Student Reviews</h2>
+      <div class="rating-summary">
+        <div class="rating-big">
+          <div class="rating-num">4.9</div>
+          <div class="stars-row">★★★★★</div>
+          <div class="rating-count">Course Rating</div>
+        </div>
+        <div class="rating-bars">
+          <div class="rating-bar-row"><span class="bar-stars">5 ★</span><div class="bar-track"><div class="bar-fill" style="width:88%"></div></div><span class="bar-pct">88%</span></div>
+          <div class="rating-bar-row"><span class="bar-stars">4 ★</span><div class="bar-track"><div class="bar-fill" style="width:9%"></div></div><span class="bar-pct">9%</span></div>
+          <div class="rating-bar-row"><span class="bar-stars">3 ★</span><div class="bar-track"><div class="bar-fill" style="width:2%"></div></div><span class="bar-pct">2%</span></div>
+          <div class="rating-bar-row"><span class="bar-stars">2 ★</span><div class="bar-track"><div class="bar-fill" style="width:1%"></div></div><span class="bar-pct">1%</span></div>
+          <div class="rating-bar-row"><span class="bar-stars">1 ★</span><div class="bar-track"><div class="bar-fill" style="width:0%"></div></div><span class="bar-pct">0%</span></div>
+        </div>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#ede9fe;color:#7c3aed">PR</div>
+            <div>
+              <div class="review-name">Priya Rajput</div>
+              <div class="review-stars">★★★★★</div>
+              <div class="review-date">November 2024</div>
+            </div>
+          </div>
+          <p class="review-text">Best digital marketing course I've found. Arjun explains everything with real examples and live account walkthroughs. Got a job at a digital agency within 2 months of completing this. Worth every rupee!</p>
+          <div class="helpful">👍 <span>142 people</span> found this helpful</div>
+        </div>
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#dcfce7;color:#059669">SK</div>
+            <div>
+              <div class="review-name">Sanjay Kumar</div>
+              <div class="review-stars">★★★★★</div>
+              <div class="review-date">October 2024</div>
+            </div>
+          </div>
+          <p class="review-text">I run a small clothing business and this course completely changed how I approach online marketing. My Facebook ads are now profitable and organic traffic is up 300%. Highly practical content.</p>
+          <div class="helpful">👍 <span>98 people</span> found this helpful</div>
+        </div>
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#fef3c7;color:#d97706">NS</div>
+            <div>
+              <div class="review-name">Nisha Sharma</div>
+              <div class="review-stars">★★★★★</div>
+              <div class="review-date">October 2024</div>
+            </div>
+          </div>
+          <p class="review-text">The Google Ads section alone is worth 10x the price. Arjun goes deep into negative keywords, quality scores, and bidding strategies that nobody else teaches. I'm now managing ₹15L/month in ad spend.</p>
+          <div class="helpful">👍 <span>76 people</span> found this helpful</div>
+        </div>
+        <div class="review-card">
+          <div class="review-top">
+            <div class="review-avatar" style="background:#dbeafe;color:#2563eb">RG</div>
+            <div>
+              <div class="review-name">Rohit Gupta</div>
+              <div class="review-stars">★★★★★</div>
+              <div class="review-date">September 2024</div>
+            </div>
+          </div>
+          <p class="review-text">Completed 4 other marketing courses before this one and none came close. The projects are real — you actually launch campaigns and see results. Now freelancing at ₹80K/month.</p>
+          <div class="helpful">👍 <span>64 people</span> found this helpful</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end course-main -->
+
+  <!-- Sidebar -->
+  <div class="course-sidebar">
+
+    <!-- Progress Card -->
+    <div class="progress-card" id="progressCard">
+      <h3>Your Progress</h3>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-label">
+        <span>Module 1 in progress</span>
+        <span id="progressPct">0% complete</span>
+      </div>
+      <div class="module-progress">
+        <div class="mp-row"><div class="mp-dot mp-done"></div><div class="mp-name">01 · Introduction</div><div class="mp-check">✓</div></div>
+        <div class="mp-row"><div class="mp-dot mp-active"></div><div class="mp-name">02 · SEO Fundamentals</div><div style="font-size:11px;color:var(--indigo);font-weight:600">In Progress</div></div>
+        <div class="mp-row"><div class="mp-dot mp-todo"></div><div class="mp-name">03 · Google Ads</div></div>
+        <div class="mp-row"><div class="mp-dot mp-todo"></div><div class="mp-name">04 · Meta Ads</div></div>
+        <div class="mp-row"><div class="mp-dot mp-todo"></div><div class="mp-name">05 · Content Marketing</div></div>
+        <div class="mp-row"><div class="mp-dot mp-todo"></div><div class="mp-name">06 · Email Marketing</div></div>
+        <div class="mp-row"><div class="mp-dot mp-todo"></div><div class="mp-name">07 · Analytics</div></div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="share-card">
+      <h4>Share this course</h4>
+      <div class="share-btns">
+        <button class="share-btn">💼 LinkedIn</button>
+        <button class="share-btn">🐦 Twitter</button>
+        <button class="share-btn">🔗 Copy Link</button>
+      </div>
+    </div>
+
+    <!-- Also Popular -->
+    <div class="progress-card">
+      <h3>Students also bought</h3>
+      <div style="margin-top:.5rem">
+        <div style="display:flex;gap:.75rem;padding:.75rem 0;border-bottom:1px solid var(--border);align-items:center">
+          <div style="width:48px;height:48px;background:linear-gradient(135deg,#f97316,#fcd34d);border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:22px">📊</div>
+          <div>
+            <div style="font-size:13px;font-weight:600;line-height:1.4">Google Analytics 4 – Complete Guide</div>
+            <div style="font-size:12px;color:var(--ink-l);margin-top:2px">⭐ 4.8 · 12,400 students</div>
+            <div style="font-size:13px;font-weight:700;color:var(--indigo);margin-top:2px">₹499</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:.75rem;padding:.75rem 0;align-items:center">
+          <div style="width:48px;height:48px;background:linear-gradient(135deg,#6366f1,#a855f7);border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:22px">✍️</div>
+          <div>
+            <div style="font-size:13px;font-weight:600;line-height:1.4">Copywriting Masterclass for Ads</div>
+            <div style="font-size:12px;color:var(--ink-l);margin-top:2px">⭐ 4.9 · 8,200 students</div>
+            <div style="font-size:13px;font-weight:700;color:var(--indigo);margin-top:2px">₹599</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end sidebar -->
+</div><!-- end course-layout -->
+
+<footer>
+  <div>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Service</a>
+    <a href="#">Help</a>
+    <a href="#">Careers</a>
+  </div>
+  <p style="margin-top:.75rem">© 2024 LearnDigi. All rights reserved.</p>
+</footer>
+
+<script>
+// ── Module accordion ────────────────────────────────────────────────────────
+function toggleModule(header) {
+  const module = header.parentElement;
+  module.classList.toggle('open');
+}
+
+// ── Expand / Collapse all ───────────────────────────────────────────────────
+let allExpanded = false;
+function toggleAll() {
+  const modules = document.querySelectorAll('.module');
+  allExpanded = !allExpanded;
+  modules.forEach(m => allExpanded ? m.classList.add('open') : m.classList.remove('open'));
+  document.getElementById('expandBtn').textContent = allExpanded ? 'Collapse All' : 'Expand All';
+}
+
+// ── Progress bar animation ──────────────────────────────────────────────────
+setTimeout(() => {
+  const fill = document.getElementById('progressFill');
+  const pct  = document.getElementById('progressPct');
+  if (fill) { fill.style.width = '14%'; pct.textContent = '14% complete'; }
+}, 600);
+
+// ── Countdown timer ─────────────────────────────────────────────────────────
+let seconds = 23 * 3600 + 47 * 60 + 12;
+function updateTimer() {
+  const el = document.getElementById('timer');
+  if (!el) return;
+  const h = String(Math.floor(seconds / 3600)).padStart(2,'0');
+  const m = String(Math.floor((seconds % 3600) / 60)).padStart(2,'0');
+  const s = String(seconds % 60).padStart(2,'0');
+  el.textContent = `${h}:${m}:${s}`;
+  if (seconds > 0) seconds--;
+}
+setInterval(updateTimer, 1000);
+
+// ── Tab active on scroll ────────────────────────────────────────────────────
+const sections = ['overview','curriculum','instructor','reviews'];
+const tabs = document.querySelectorAll('.tab-btn');
+window.addEventListener('scroll', () => {
+  let active = 0;
+  sections.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top < 140) active = i;
+  });
+  tabs.forEach((t, i) => t.classList.toggle('active', i === active));
+});
+
+// ── Tab click scroll ────────────────────────────────────────────────────────
+tabs.forEach((tab, i) => {
+  tab.addEventListener('click', () => {
+    const el = document.getElementById(sections[i]);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+// ── Rating bars animation ───────────────────────────────────────────────────
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.width = e.target.getAttribute('data-w') || e.target.style.width;
+    }
+  });
+});
+document.querySelectorAll('.bar-fill').forEach(b => {
+  b.setAttribute('data-w', b.style.width);
+  b.style.width = '0';
+  observer.observe(b);
+});
+
+// ── Share button feedback ───────────────────────────────────────────────────
+document.querySelectorAll('.share-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const orig = this.textContent;
+    this.textContent = '✓ Copied!';
+    setTimeout(() => this.textContent = orig, 1500);
+  });
+});
+</script>
+</body>
+</html>
