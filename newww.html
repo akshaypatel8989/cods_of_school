@@ -1,209 +1,895 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Offices</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us | Code of School — Best IT Training Institute in Indore</title>
+    <meta name="description" content="Contact Code of School for IT courses, admissions, and career guidance. Call, WhatsApp, or fill out the form. We reply within 2 hours." />
+    <link rel="icon" href="./img/cos-white-logo2.png" type="image/webp" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Your existing CSS files -->
+    <link rel="stylesheet" href="./header-footer.css" />
+    <link rel="stylesheet" href="./contactustwo.css" />
+    
+
+    <style>
+    /* ================================================================
+       CONTACT PAGE REDESIGN — All styles scoped to new class names
+       so nothing conflicts with your existing header-footer.css
+    ================================================================ */
+
+    /* ── Page shell ────────────────────────────────────────────── */
     body {
-  margin: 0;
+        padding-top: 80px;
+        background: #020306;
+        font-family: Arial, sans-serif;
+        color: #fff;
+        min-height: 100vh;
+    }
+
+    /* ── Hero banner ────────────────────────────────────────────── */
+    .ct-hero {
+        background:
+            radial-gradient(ellipse 80% 60% at 50% 0%,
+                rgba(110,73,184,.38) 0%, transparent 65%),
+            radial-gradient(ellipse 40% 40% at 80% 90%,
+                rgba(255,107,26,.10) 0%, transparent 60%),
+            #020306;
+        padding: 4.5rem 1.5rem 3.5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    /* Top glow line */
+    .ct-hero::before {
+        content: '';
+        position: absolute; top: 0; left: 0; right: 0; height: 2px;
+        background: linear-gradient(90deg,
+            transparent, rgba(218, 216, 222, 0.9), rgba(255, 144, 26, 0.7),
+            rgba(184, 167, 73, 0.9), transparent);
+    }
+
+    .ct-hero-tag {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: .35rem 1rem; border-radius: 20px;
+        border: 1px solid rgba(110,73,184,.45);
+        background: rgba(110,73,184,.12);
+        font-size: 11px; font-weight: 700; letter-spacing: 2px;
+        text-transform: uppercase; color: #9b72e8;
+        margin-bottom: 1.25rem;
+    }
+    .ct-hero-tag span {
+        width: 6px; height: 6px; border-radius: 50%;
+        background: #ff6b1a; animation: tagBlink 2s infinite;
+    }
+    @keyframes tagBlink { 0%,100%{opacity:1} 50%{opacity:.25} }
+
+    .ct-hero h1 {
+        font-size: clamp(28px, 5vw, 54px);
+        font-weight: 800; line-height: 1.1;
+        letter-spacing: -1.5px; margin-bottom: 1rem;
+    }
+    .ct-hero h1 em {
+         font-style: normal;
+    background: linear-gradient(135deg, #fcd34d, #f97316);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    }
+    .ct-hero p {
+        font-size: 16px; color: rgba(255,255,255,.60);
+        max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.8;
+    }
+
+    /* Quick info pills */
+    .ct-hero-pills {
+        display: flex; justify-content: center; gap: 1rem;
+        flex-wrap: wrap;
+    }
+    .ct-pill {
+        display: flex; align-items: center; gap: .45rem;
+        padding: .45rem 1rem; border-radius: 20px;
+        background: rgba(255,255,255,.05);
+        border: 1px solid rgba(255,255,255,.10);
+        font-size: 13px; color: rgba(255,255,255,.72);
+    }
+    .ct-pill span { font-size: 15px; }
+
+
+    /* ── Main contact layout ────────────────────────────────────── */
+    .ct-body {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 4rem 1.5rem 5rem;
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 2.5rem;
+        align-items: start;
+    }
+
+
+    /* ── LEFT COLUMN ───────────────────────────────────────────── */
+    .ct-left { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    /* Section title */
+    .ct-section-title {
+        font-size: 22px; font-weight: 800;
+        letter-spacing: -.3px; margin-bottom: .25rem;
+        color: #fff;
+    }
+    .ct-section-sub {
+        font-size: 14px; color: rgba(255,255,255,.50);
+        line-height: 1.7; margin-bottom: 1rem;
+    }
+
+    /* Info card base */
+    .ct-info-card {
+        background: #0c0c18;
+        border: 1px solid rgba(255,255,255,.09);
+        border-radius: 14px;
+        padding: 1.35rem 1.5rem;
+        transition: border-color .2s, transform .25s;
+    }
+    .ct-info-card:hover {
+        border-color: rgba(110,73,184,.45);
+        transform: translateY(-3px);
+    }
+
+    /* Card inner row */
+    .ct-card-row {
+        display: flex; align-items: flex-start; gap: 1rem;
+    }
+
+    /* Icon box */
+    .ct-icon-box {
+        width: 46px; height: 46px;
+        border-radius: 12px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 20px; flex-shrink: 0;
+    }
+    .icon-purple { background: rgba(110,73,184,.18); color: #9b72e8; }
+    .icon-orange { background: rgba(255,107,26,.15); color: #ff8c47; }
+    .icon-green  { background: rgba(34,197,94,.15);  color: #4ade80; }
+    .icon-blue   { background: rgba(59,130,246,.15); color: #60a5fa; }
+
+    .ct-card-content h4 {
+        font-size: 13px; font-weight: 700; color: rgba(255,255,255,.45);
+        text-transform: uppercase; letter-spacing: 1px; margin-bottom: .3rem;
+    }
+    .ct-card-content p,
+    .ct-card-content a {
+        font-size: 14px; color: rgba(255,255,255,.80);
+        line-height: 1.75; text-decoration: none;
+        display: block; transition: color .18s;
+    }
+    .ct-card-content a:hover { color: #9b72e8; }
+
+    /* Quick call/WA buttons */
+    .ct-quick-btns {
+        display: flex; gap: .6rem; flex-wrap: wrap; margin-top: .9rem;
+    }
+    .ct-qbtn {
+        display: inline-flex; align-items: center; gap: .4rem;
+        padding: .55rem 1.1rem; border-radius: 8px;
+        font-size: 13px; font-weight: 700;
+        text-decoration: none; transition: all .2s;
+    }
+    .ct-qbtn-call {
+        background:linear-gradient(135deg, #fcd34d, #f97316);
+        color: #fff; box-shadow: 0 4px 16px rgba(110,73,184,.35);
+    }
+    .ct-qbtn-call:hover { opacity: .85; transform: translateY(-2px); }
+    .ct-qbtn-wa {
+        background: linear-gradient(135deg,#25d366,#128c53);
+        color: #fff; box-shadow: 0 4px 16px rgba(37,211,102,.3);
+    }
+    .ct-qbtn-wa:hover { opacity: .85; transform: translateY(-2px); }
+
+    /* Social row */
+    .ct-social-row {
+        display: flex; gap: .6rem; flex-wrap: wrap;
+        padding: 1.35rem 1.5rem;
+        background: #0c0c18;
+        border: 1px solid rgba(255,255,255,.09);
+        border-radius: 14px;
+    }
+    .ct-social-btn {
+        width: 42px; height: 42px; border-radius: 10px;
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.10);
+        display: flex; align-items: center; justify-content: center;
+        color: rgba(255,255,255,.65); font-size: 16px;
+        text-decoration: none; transition: all .2s;
+    }
+    .ct-social-btn:hover {
+        background: rgba(110,73,184,.2);
+        border-color: rgba(110,73,184,.5);
+        color: #9b72e8; transform: translateY(-3px);
+    }
+    .ct-social-label {
+        font-size: 12px; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 1.5px;
+        color: rgba(255,255,255,.30); margin-bottom: .6rem;
+        display: block;
+    }
+
+
+    /* ── RIGHT COLUMN — FORM ────────────────────────────────────── */
+    .ct-form-card {
+        background: #0c0c18;
+        border: 1px solid rgba(110,73,184,.30);
+        border-radius: 18px;
+        padding: 2.25rem 2rem;
+        box-shadow:
+            0 0 40px rgba(110,73,184,.15),
+            0 0 80px rgba(110,73,184,.06);
+        position: sticky;
+        top: 100px;
+    }
+
+    .ct-form-title {
+        font-size: 22px; font-weight: 800;
+        letter-spacing: -.3px; margin-bottom: .35rem;
+    }
+    .ct-form-sub {
+        font-size: 13px; color: rgba(255,255,255,.50);
+        margin-bottom: 1.75rem; line-height: 1.6;
+    }
+    .ct-form-sub strong { color: #ee9b0b; }
+
+    /* Form groups */
+    .ct-form-group { margin-bottom: 1.1rem; }
+    .ct-form-group label {
+        display: block; font-size: 12px; font-weight: 700;
+        text-transform: uppercase; letter-spacing: 1px;
+        color: rgba(255,255,255,.45); margin-bottom: .45rem;
+    }
+    .ct-form-group input,
+    .ct-form-group select {
+        width: 100%;
+        padding: .75rem 1rem;
+        background: rgba(255,255,255,.06);
+        border: 1.5px solid rgba(255,255,255,.10);
+        border-radius: 10px;
+        color: #fff; font-size: 14px;
+        font-family: Arial, sans-serif;
+        outline: none;
+        transition: border-color .2s, background .2s;
+        -webkit-appearance: none; appearance: none;
+    }
+    .ct-form-group input::placeholder { color: rgba(255,255,255,.30); }
+    .ct-form-group input:focus,
+    .ct-form-group select:focus {
+        border-color: rgba(235, 128, 34, 0.65);
+        background: rgba(110,73,184,.08);
+    }
+    /* Select arrow */
+    .ct-select-wrap { position: relative; }
+    .ct-select-wrap::after {
+        content: '▾';
+        position: absolute; right: 1rem; top: 50%;
+        transform: translateY(-50%);
+        color: rgba(255,255,255,.35); font-size: 14px;
+        pointer-events: none;
+    }
+    .ct-form-group select option {
+        background: #0e0e1a; color: #fff;
+    }
+
+    /* Two column row */
+    .ct-form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+
+    /* Submit button */
+    .ct-submit-btn {
+        width: 100%; padding: .95rem;
+          font-style: normal;
+    background: linear-gradient(135deg, #fcd34d, #f97316);
   
-}
+        color: #fff; border: none; border-radius: 10px;
+        font-size: 15px; font-weight: 700;
+        cursor: pointer; margin-top: .5rem;
+        font-family: Arial, sans-serif;
+        box-shadow: 0 6px 24px rgba(110,73,184,.40);
+        transition: opacity .2s, transform .2s;
+        display: flex; align-items: center;
+        justify-content: center; gap: .5rem;
+    }
+    .ct-submit-btn:hover {
+        opacity: .88; transform: translateY(-2px);
+        box-shadow: 0 10px 32px rgba(110,73,184,.55);
+    }
 
-.office-section {
-  text-align: center;
-  padding: 50px 20px;
-  color: rgb(231, 227, 227);
-}
+    /* Guarantee note */
+    .ct-form-note {
+        display: flex; align-items: center; gap: .5rem;
+        margin-top: 1rem; font-size: 12px;
+        color: rgba(255,255,255,.38);
+    }
+    .ct-form-note span { font-size: 14px; }
 
-.subtitle {
-  color: #aaa;
-  margin-bottom: 40px;
-}
-
-.cards {
-  display: flex;
- margin: 0px 20px;
-  gap: 30px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-/* CARD BASE */
-.card {
-  flex: 1;
-    display: flex;
-  flex-direction: column;
-  width: 80%;
-  height:550px ; 
-  padding: 20px;
-  border-radius: 20px;
-  background: rgba(81, 53, 53, 0.05);
-  backdrop-filter: blur(10px);
-  text-align: center;
-  transition: 0.3s;
-}
-
-.card img {
-  width: 100%;
-  height: 327px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin: 10px 0;
-  
-}
-
-.card button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  
-  border-radius: 25px;
-  border: none;
-  cursor: pointer;
-  background: transparent;
-  color: white;
-  border: 2px solid;
-  transition: 0.3s;
-}
-
-/* NEON COLORS */
-.pink {
-  border: 2px solid #e342c3;
-  box-shadow: 0 0 15px #e027bb;
-}
-.pink button {
-  border-color: #db36ba;
-}
-.pink:hover {
-  box-shadow: 0 0 30px #ff00cc;
-}
-
-.blue {
-  border: 2px solid #78c6cd;
-  box-shadow: 0 0 15px #40c5d2;
-}
-.blue button {
-  border-color: #00eaff;
-}
-.blue:hover {
-  box-shadow: 0 0 30px #3cc3d0;
-}
-
-.yellow {
-  border: 2px solid #c2a532;
-  box-shadow: 0 0 15px #d8b529;
-}
-.yellow button {
-  border-color: #c8a92d;
-}
-.yellow:hover {
-  box-shadow: 0 0 30px #e4ba14;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-  .cards {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-.card  h3{
- font-size: 16px;
- margin: 0px 10px;
- padding: 0px 10px;
- font-style:italic;
- font-weight: 400;
-}
-.card p{
- font-size:14px;
- font-weight: 100;
- color: #c8c8c8;
-
-}
+    /* Success / error state */
+    .ct-alert {
+        padding: .75rem 1rem; border-radius: 8px;
+        font-size: 13px; font-weight: 600;
+        margin-bottom: 1rem; display: none;
+    }
+    .ct-alert.success {
+        background: rgba(34,197,94,.12);
+        border: 1px solid rgba(34,197,94,.35);
+        color: #4ade80; display: flex;
+        align-items: center; gap: .5rem;
+    }
+    .ct-alert.error {
+        background: rgba(239,68,68,.12);
+        border: 1px solid rgba(239,68,68,.35);
+        color: #f87171; display: flex;
+        align-items: center; gap: .5rem;
+    }
 
 
-.img {
-  position: relative;
-  border: 2px solid #00eaff; /* top, left, right */
-  border-bottom: none; /* remove bottom border */
-  border-radius: 5px;
-  overflow: hidden;
-}
+    /* ── MAP SECTION ────────────────────────────────────────────── */
+    .ct-map-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem 5rem;
+    }
+    .ct-map-heading {
+        font-size: 22px; font-weight: 800;
+        margin-bottom: .4rem;
+    }
+    .ct-map-sub {
+        font-size: 14px; color: rgba(255,255,255,.50);
+        margin-bottom: 1.5rem;
+    }
+    .ct-map-grid {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 1.25rem;
+    }
+    .ct-map-card {
+        background: #0c0c18;
+        border: 1px solid rgba(255,255,255,.09);
+        border-radius: 14px; overflow: hidden;
+        transition: border-color .2s, transform .25s;
+    }
+    .ct-map-card:hover {
+        border-color: rgba(110,73,184,.4);
+        transform: translateY(-4px);
+    }
+    .ct-map-card iframe {
+        width: 100%; height: 220px;
+        border: none; display: block; filter: brightness(.85) saturate(.9);
+    }
+    .ct-map-label {
+        padding: .85rem 1rem;
+        display: flex; align-items: center; gap: .5rem;
+        font-size: 13px; font-weight: 700;
+        color: rgba(255,255,255,.75);
+        border-top: 1px solid rgba(255,255,255,.07);
+    }
+    .ct-map-label .dot {
+        width: 8px; height: 8px; border-radius: 50%;
+        flex-shrink: 0;
+    }
+    .dot-purple { background: #9b72e8; }
+    .dot-orange { background: #ff6b1a; }
+    .dot-green  { background: #4ade80; }
 
-.img-box img {
-  width: 100%;
 
-  display: block;
-}
-
-/* BLACK SHADE AT BOTTOM */
-.img::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 80px;
-
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0) 0%,
-    rgba(0,0,0,0.8) 100%
-  );
-}
-  </style>
+    /* ── RESPONSIVE ────────────────────────────────────────────── */
+    @media (max-width: 960px) {
+        .ct-body { grid-template-columns: 1fr; gap: 2rem; }
+        .ct-form-card { position: relative; top: 0; }
+        .ct-map-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+        .ct-hero { padding: 3rem 1.25rem 2.5rem; }
+        .ct-body { padding: 2.5rem 1.25rem 4rem; }
+        .ct-map-section { padding: 0 1.25rem 4rem; }
+        .ct-form-card { padding: 1.5rem 1.25rem; }
+        .ct-form-row { grid-template-columns: 1fr; gap: .75rem; }
+        .ct-hero h1 { letter-spacing: -.5px; }
+    }
+    /* .ct-card-content{
+      display: flex;
+      justify-content: center; */
+    
+    </style>
 </head>
+
 <body>
-  <section>
-    <div class="img-box">
-  <img src="./img/course_img/indore_office1.jpg" alt="">
-</div>
-  </section>
+<div class="main">
 
-<section class="office-section">
-  <h2>OUR OFFICES</h2>
-  <p class="subtitle">Expanding Across India with Strategic Office Locations</p>
+    <!-- ══ HEADER — unchanged ══════════════════════════════════════ -->
+    <header>
+        <nav>
+            <div class="nav-image">
+                <a href="/"><img src="./img/cos-white-logo.webp" alt="Code of School Logo"></a>
+            </div>
+            <div class="nav-pg">
+                <ul class="nav-page">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="course.html" id="courses-link">Courses ▼</a></li>
+                    <li><a href="placement.html">Our Placements</a></li>
+                    <li><a href="contact-us.html" style="color:#9b72e8;font-weight:700">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="nav-but">
+                <a href="tel:+919977723584" class="call-btn">
+                    <i class="fa-solid fa-phone"></i> Enroll Now
+                </a>
+            </div>
+            <div class="hamburger-menu" id="hamburger-icon">&#9776;</div>
+        </nav>
+    </header>
 
-  <div class="cards">
-
-    <!-- Card 1 -->
-    <div class="card pink">
-        <i class="fa-solid fa-location-dot " style="color: #f228c9;" ></i>
-      <h3>Indore (Head) Office</h3>
-      <img src="./img/course_img/indore_office1.jpg" alt="">
-    
-      <h3><i class="fa-solid fa-location-dot " style="color: #f228c9;" ></i> Indore Head Office</h3>
-      <p>Office No. 421 Fourth Floor, Shagun Tower, Vijay Nagar, Indore</p>
-      <button>VIEW MAP</button>
-    
+    <div class="dropdown-panel" id="dropdown-panel">
+        <ul class="categories" id="category-list">
+            <li data-category="all">All</li>
+            <li data-category="web">Web Dev</li>
+            <li data-category="language">Languages</li>
+            <li data-category="app">Mobile.Dev</li>
+            <li data-category="ai">Data &amp; AI</li>
+            <li data-category="other">Other</li>
+        </ul>
+        <ul class="courses" id="course-list"></ul>
     </div>
 
-    <!-- Card 2 -->
-    <div class="card blue">
-           <i class="fa-solid fa-location-dot " style="color:rgb(75, 237, 242)" ></i>
-      <h3>Indore 2nd Office</h3>
-      
-      <img src="./img/course_img/Indore ( Head ) Office.png" alt="">
-      <h3>  <i class="fa-solid fa-location-dot " style="color:rgb(75, 237, 242)" ></i> Indore Branch Office</h3>
-      <p>In Front of Vishal Mega Mart, Vijay Nagar, Indore</p>
-      <button>VIEW MAP</button>
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+        <div class="close-btn" id="close-mobile-nav">&times;</div>
+        <ul class="mobile-nav-page">
+            <li><a href="/">Home</a></li>
+            <li><a href="./about-us.html">About Us</a></li>
+            <li><a href="./course.html">Courses ▼</a></li>
+            <li><a href="placement.html">Our Placements</a></li>
+            <li><a href="./contact-us.html">Contact Us</a></li>
+        </ul>
+        <div class="mobile-nav-button">
+            <a href="tel:+919977723584" class="call-btn">
+                <i class="fa-solid fa-phone"></i> Enroll Now
+            </a>
+        </div>
     </div>
+    <!-- ══ END HEADER ═══════════════════════════════════════════════ -->
 
-    <!-- Card 3 -->
-    <div class="card yellow">
-           <i class="fa-solid fa-location-dot " style="color: #f4e812; " ></i>
-      <h3>Seoni Malwa Office</h3>
-      <img src="./img/course_img/seoni_malwa.jpg" alt="">
-       <h3>  <i class="fa-solid fa-location-dot " style="color: #f4e812; " ></i> Seoni Malwa Office</h3>
-      <p>Main Road, above SBI Bank, Seoni Malwa</p>
-      <button>VIEW MAP</button>
-    </div>
 
-  </div>
-</section>
+    <!-- ══ HERO BANNER ═════════════════════════════════════════════ -->
+    <section class="ct-hero">
+        <div class="ct-hero-tag">
+            <span></span> Get in Touch
+        </div>
+        <h1>Let's Start Your<br/><em>Tech Career Today</em></h1>
+        <p>Have questions about admissions, courses, or fees? Our team responds within 2 hours. We're here to help you pick the right path.</p>
+        <div class="ct-hero-pills">
+            <div class="ct-pill"><span>⚡</span> Reply in 2 Hours</div>
+            <div class="ct-pill"><span>📞</span> Free Counselling</div>
+            <div class="ct-pill"><span>🎓</span> 120,000+ Students Guided</div>
+            <div class="ct-pill"><span>📍</span> 3 Office Locations</div>
+        </div>
+    </section>
+
+
+    <!-- ══ MAIN CONTACT BODY ════════════════════════════════════════ -->
+    <div class="ct-body">
+
+        <!-- ─── LEFT: Contact info ─── -->
+        <div class="ct-left">
+
+            <div>
+                <h2 class="ct-section-title">Contact Information</h2>
+                <p class="ct-section-sub">Reach us by phone, email, or visit any of our three offices across India.</p>
+            </div>
+
+            <!-- Phone -->
+            <div class="ct-info-card">
+                <div class="ct-card-row">
+                    <div class="ct-icon-box icon-purple">📞</div>
+                    <div class="ct-card-content">
+                        <h4>Phone Numbers</h4>
+                        <a href="tel:9977723584">+91 9977-723-584 </a>
+                        <a href="tel:9165234695">+91 9165-234-695</a>
+                        <a href="tel:6263945418">+91 6263-945-418 (Seoni Malwa)</a>
+                        
+                    </div>
+                </div>
+                <div class="ct-quick-btns">
+                    <a class="ct-qbtn ct-qbtn-call" href="tel:+919977723584">
+                        📞 Call Now
+                    </a>
+                    <a class="ct-qbtn ct-qbtn-wa"
+                       href="https://wa.me/919977723584?text=Hi!%20I%20want%20to%20know%20more%20about%20your%20courses."
+                       target="_blank">
+                        💬 WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="ct-info-card">
+                <div class="ct-card-row">
+                    <div class="ct-icon-box icon-orange">✉️</div>
+                    <div class="ct-card-content">
+                        <h4>Email Address</h4>
+                        <a href="mailto:thecodeofschool@gmail.com">thecodeofschool@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Indore Head Office -->
+            <div class="ct-info-card">
+                <div class="ct-card-row">
+                    <div class="ct-icon-box icon-blue">📍</div>
+                    <div class="ct-card-content">
+                        <h4>Indore — Head Office</h4>
+                        <p>Office No. 421, Fourth Floor, Shagun Tower,<br>
+                           Rasoma Square, Vijay Nagar, Indore, MP 452010</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Indore 2nd Office -->
+            <div class="ct-info-card">
+                <div class="ct-card-row">
+                    <div class="ct-icon-box icon-purple">📍</div>
+                    <div class="ct-card-content">
+                        <h4>Indore — 2nd Office</h4>
+                        <p>In Front of Vishal Mega Mart, SH 20 H I G,<br>
+                           Bhagat Singh Paris, Vijay Nagar, Indore</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seoni Malwa -->
+            <div class="ct-info-card">
+                <div class="ct-card-row">
+                    <div class="ct-icon-box icon-green">📍</div>
+                    <div class="ct-card-content">
+                        <h4>Seoni Malwa Office</h4>
+                        <p>Main Road, above SBI Main Branch,<br>
+                           near Geeta Talkies, Seoni Malwa, MP 461223</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Office hours -->
+            <div class="ct-info-card">
+                <div class="ct-card-row">
+                    <div class="ct-icon-box icon-orange">🕐</div>
+                    <div class="ct-card-content">
+                        <h4>Office Hours</h4>
+                        <p>Monday – Saturday &nbsp; 10:00 AM – 8:00 PM</p>
+                        <p style="color:rgba(255,255,255,.40);font-size:13px">Sunday — Closed</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social -->
+            <div class="ct-social-row" style="flex-direction:column">
+                <span class="ct-social-label">Follow Us</span>
+                <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+                    <a class="ct-social-btn" href="https://www.instagram.com/codeofschool/" target="_blank" title="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/></svg>
+                    </a>
+                    <a class="ct-social-btn" href="https://www.linkedin.com/company/code-of-school" target="_blank" title="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/></svg>
+                    </a>
+                    <a class="ct-social-btn" href="https://www.facebook.com/codeofschool" target="_blank" title="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/></svg>
+                    </a>
+                    <a class="ct-social-btn" href="https://x.com/codeofschool" target="_blank" title="X / Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/></svg>
+                    </a>
+                    <a class="ct-social-btn"
+                       href="https://wa.me/919977723584"
+                       target="_blank" title="WhatsApp"
+                       style="background:rgba(37,211,102,.1);border-color:rgba(37,211,102,.2);color:#4ade80">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/></svg>
+                    </a>
+                </div>
+            </div>
+
+        </div><!-- /ct-left -->
+
+
+        <!-- ─── RIGHT: Form ─── -->
+        <div class="ct-form-card">
+
+            <div class="ct-alert" id="ctSuccess">
+                ✅ Thank you! We'll contact you within 2 hours.
+            </div>
+            <div class="ct-alert" id="ctError">
+                ❌ Something went wrong. Please try again or call us directly.
+            </div>
+
+            <h3 class="ct-form-title">Enquire Now</h3>
+            <p class="ct-form-sub">
+                Fill in your details and a counsellor will call you back.
+                <strong>Free counselling · No obligation.</strong>
+            </p>
+
+            <form id="contactForm" onsubmit="handleFormSubmit(event)">
+
+                <div class="ct-form-row">
+                    <div class="ct-form-group">
+                        <label for="name">Full Name *</label>
+                        <input
+                            type="text" id="name" name="name"
+                            placeholder="Rahul Kumar"
+                            required autocomplete="name"
+                        />
+                    </div>
+                    <div class="ct-form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input
+                            type="tel" id="phone" name="phone"
+                            placeholder="+91 98765 43210"
+                            required autocomplete="tel"
+                        />
+                    </div>
+                </div>
+
+                <div class="ct-form-group">
+                    <label for="email">Email Address *</label>
+                    <input
+                        type="email" id="email" name="email"
+                        placeholder="rahul@example.com"
+                        required autocomplete="email"
+                    />
+                </div>
+
+                <div class="ct-form-group">
+                    <label for="course">Interested Course *</label>
+                    <div class="ct-select-wrap">
+                        <select id="course" name="course" required class="for-inp-field"
+                                style="width:100%;padding:.75rem 1rem;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.10);border-radius:10px;color:#fff;font-size:14px;font-family:Arial,sans-serif;outline:none;-webkit-appearance:none;appearance:none;">
+                            <option value="" disabled selected style="color:rgba(255,255,255,.3)">Select a course…</option>
+                            <option value="Digital Marketing with AI">📊 Digital Marketing with AI</option>
+                            <option value="MERN Stack">🟢 MERN Stack Development</option>
+                            <option value="Java Full Stack">☕ Java Full Stack</option>
+                            <option value="Java Core & Advanced">♨️ Java Core &amp; Advanced</option>
+                            <option value="Python Development">🐍 Python Development</option>
+                            <option value="Python Full Stack">🐍 Python Full Stack</option>
+                            <option value="Python with Django">🦄 Python with Django</option>
+                            <option value="Data Science">🔬 Data Science</option>
+                            <option value="Machine Learning">🤖 Machine Learning</option>
+                            <option value="Data Analysis">📈 Data Analysis</option>
+                            <option value="Frontend React/Angular">⚛️ Frontend React/Angular</option>
+                            <option value="Next.js">▲ Next.js</option>
+                            <option value="Mobile App Development">📱 Mobile App Development</option>
+                            <option value="React Native">📲 React Native</option>
+                            <option value="C with C++">⚙️ C with C++</option>
+                            <option value="DSA with C++">🧩 DSA with C++</option>
+                            <option value="PHP Core & Advanced">🐘 PHP Core &amp; Advanced</option>
+                            <option value="WordPress">🌐 WordPress</option>
+                            <option value="UI/UX Design">🎨 UI/UX Design</option>
+                            <option value="Video Editing">🎬 Video Editing</option>
+                            <option value="BDE Training">💼 BDE Training</option>
+                            <option value="Not sure yet">🤔 Not sure — need guidance</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="ct-form-group">
+                    <label for="message">Message (Optional)</label>
+                    <input
+                        type="text" id="message" name="message"
+                        placeholder="Any specific questions or preferred batch timing?"
+                    />
+                </div>
+
+                <button type="submit" class="ct-submit-btn" id="submitBtn">
+                    <span id="submitText">🚀 Send Enquiry</span>
+                </button>
+
+                <div class="ct-form-note">
+                    <span>🛡️</span>
+                    Your details are safe. We never share your information.
+                </div>
+
+            </form>
+        </div><!-- /ct-form-card -->
+
+    </div><!-- /ct-body -->
+
+
+    <!-- ══ MAP SECTION ══════════════════════════════════════════════ -->
+    <div class="ct-map-section">
+        <h2 class="ct-map-heading">📍 Find Us</h2>
+        <p class="ct-map-sub">Three convenient locations across Madhya Pradesh</p>
+
+        <div class="ct-map-grid">
+
+            <!-- Map 1 — Indore Head Office -->
+            <div class="ct-map-card">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.4538!2d75.8953251!3d22.7496616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fd2b2a3f9bad%3A0x95c5da59b10d6cf9!2sInforag+Technology!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
+                    allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Indore Head Office Map">
+                </iframe>
+                <div class="ct-map-label">
+                    <div class="dot dot-purple"></div>
+                    Indore — Head Office (Shagun Tower)
+                </div>
+            </div>
+
+            <!-- Map 2 — Indore 2nd -->
+            <div class="ct-map-card">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3679.3!2d75.8870!3d22.7510!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fd23b10c5a2d%3A0x5c8d9cc3dd8b5aef!2sVishal+Mega+Mart+Vijay+Nagar+Indore!5e0!3m2!1sen!2sin!4v1710000000001!5m2!1sen!2sin"
+                    allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Indore 2nd Office Map">
+                </iframe>
+                <div class="ct-map-label">
+                    <div class="dot dot-orange"></div>
+                    Indore — 2nd Office (Vijay Nagar)
+                </div>
+            </div>
+
+            <!-- Map 3 — Seoni Malwa -->
+            <div class="ct-map-card">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.4!2d77.4745115!3d22.456887!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c47b0f3a7d921%3A0x8f4b3c4f5e2d1a0b!2sState+Bank+of+India+Seoni-Malwa!5e0!3m2!1sen!2sin!4v1710000000002!5m2!1sen!2sin"
+                    allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Seoni Malwa Office Map">
+                </iframe>
+                <div class="ct-map-label">
+                    <div class="dot dot-green"></div>
+                    Seoni Malwa Office
+                </div>
+            </div>
+
+        </div>
+    </div><!-- /ct-map-section -->
+
+
+    <!-- ══ FOOTER — unchanged ═══════════════════════════════════════ -->
+    <footer>
+        <div class="footer-partone">
+            <div class="footer-inforag">
+                <div class="footer-image"><img src="./img/cos-white-logo.webp" alt="Code of School Logo"></div>
+                <div class="footer-dis"><p>Code of School by Inforag Technology empowers future tech innovators through hands-on training in coding, data science, AI, and full-stack development.</p></div>
+                <div class="footer-logo">
+                    <a href="https://www.instagram.com/codeofschool/" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/></svg></a>
+                    <a href="https://www.linkedin.com/company/code-of-school" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/></svg></a>
+                    <a href="https://www.facebook.com/codeofschool" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/></svg></a>
+                    <a href="https://x.com/codeofschool" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/></svg></a>
+                </div>
+            </div>
+            <div class="footer-quicklink">
+                <ul>
+                    <h3 id="heading">Quick Links</h3>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="./about-us.html">About Us</a></li>
+                    <li><a href="./contact-us.html">Contact Us</a></li>
+                    <li><h3>Legal &amp; Info</h3></li>
+                    <li><a href="./Frequently-asked-questions.html">FAQ</a></li>
+                    <li><a href="./privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="./termsandcondition.html">Terms &amp; Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-service">
+                <h3 id="heading-two">Courses Offered</h3>
+                <ul>
+                    <li><a href="./digital_marketing.html">Digital Marketing with AI</a></li>
+                    <li><a href="./java_full_stack.html">Java Full Stack</a></li>
+                    <li><a href="./mern_stack.html">MERN Stack</a></li>
+                    <li><a href="./data_science.html">Data Science</a></li>
+                    <li><a href="./machine_learning.html">Machine Learning</a></li>
+                    <li><a href="./python.html">Python Development</a></li>
+                    <li><a href="./C_and_C++.html">C &amp; C++</a></li>
+                    <li><a href="./ui_ux_design.html">UI/UX Design</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3 id="heading-three">Contact Us</h3>
+                <div class="footer-contact-loc">
+                    <div class="footer-contact-logo"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/></svg></div>
+                    <div class="footer-contact-location"><a href="https://www.google.com/maps/place/Inforag+Technology" target="_blank"><b>Indore:</b> Office No. 421, Shagun Tower, Vijay Nagar, Indore, MP 452010</a></div>
+                </div>
+                <div class="footer-contact-phoneno">
+                    <div class="footer-contact-logo"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z"/></svg></div>
+                    <div class="contact-no"><ul><li><a href="tel:9977723584">+91 9977-723-584</a></li><li><a href="tel:9165234695">+91 9165-234-695</a></li></ul></div>
+                </div>
+                <div class="footer-contact-mail">
+                    <div class="footer-contact-logo"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576zm6.787-8.201L1.591 6.602l4.339 2.76z"/></svg></div>
+                    <div class="mail-add"><ul><li><a href="mailto:thecodeofschool@gmail.com">thecodeofschool@gmail.com</a></li></ul></div>
+                </div>
+                <div class="footer-contact-time">
+                    <div class="footer-contact-logo"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/></svg></div>
+                    <div class="office"><ul><li>Mon-Sat : 10:00 AM - 8:00 PM</li><li>Sunday : Closed</li></ul></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-offer">
+            <div class="footer-coures">
+                <h4>COURSES WE OFFER</h4>
+                <a href="./digital_marketing.html" style="text-decoration:none;"><p>Digital Marketing Course in Indore | Online Digital Marketing Course</p></a>
+            </div>
+            <div class="coures-location">
+                <h4>JOIN OUR COURSES ONLINE, DESIGNED FOR YOUR CITY</h4>
+                <p>Delhi | Bhopal | Pune | Mumbai | Lucknow | Ahmedabad | Dewas | Indore | Ujjain | Harda | Mhow | Hoshangabad | Sehore | Sagar | Dhar |<br/>
+                Jabalpur | Satna | Gwalior | Chennai | Udaipur | Surat | Jaipur | Chandigarh | Nagpur | Noida | Kanpur | Kota |<br/>
+                Varanasi | Gurgaon | Patna | Amritsar | Thane | Agra | Srinagar | Navi Mumbai | Vadodara | Nashik</p>
+            </div>
+        </div>
+        <div class="footer-parttwo">
+            <h3>Copyright &copy; 2025 <a href="https://inforag.com/" target="_blank">Inforag Technology</a> All rights reserved</h3>
+        </div>
+    </footer>
+    <!-- ══ END FOOTER ═══════════════════════════════════════════════ -->
+
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/919977723584" class="whatsapp-float" target="_blank" rel="noopener">
+        <img src="./img/whatsapp.png" alt="WhatsApp" />
+        <div class="notification-dot"></div>
+    </a>
+
+</div><!-- /main -->
+
+
+<script src="script.js"></script>
+<script>
+/* ── Form handler — uses your existing Google Script URL ── */
+function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const btn      = document.getElementById('submitBtn');
+    const textEl   = document.getElementById('submitText');
+    const success  = document.getElementById('ctSuccess');
+    const errEl    = document.getElementById('ctError');
+
+    /* Hide any previous alerts */
+    success.style.display = 'none';
+    errEl.style.display   = 'none';
+
+    /* Loading state */
+    textEl.textContent = '⏳ Sending…';
+    btn.disabled = true;
+
+    const formData = {
+        name   : document.getElementById('name').value,
+        course : document.getElementById('course').value,
+        email  : document.getElementById('email').value,
+        phone  : document.getElementById('phone').value,
+        message: document.getElementById('message').value || ''
+    };
+
+    /* Your existing Google Apps Script endpoint */
+    const scriptURL = "https://script.google.com/macros/s/AKfycbwaLWbGHJ-24nSzmNK8aM3OzxUV_IqGQRkFHZaqBmIMF2RTQEYl9476pVKDRZULaPh6fg/exec";
+
+    fetch(scriptURL, {
+        method: 'POST',
+        body  : JSON.stringify(formData)
+    })
+    .then(r => r.json())
+    .then(() => {
+        success.style.display = 'flex';
+        document.getElementById('contactForm').reset();
+        textEl.textContent = '🚀 Send Enquiry';
+        btn.disabled = false;
+        /* Scroll to success message */
+        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    })
+    .catch(err => {
+        console.error(err);
+        errEl.style.display = 'flex';
+        textEl.textContent  = '🚀 Send Enquiry';
+        btn.disabled = false;
+    });
+
+    return false;
+}
+</script>
 
 </body>
 </html>

@@ -68,13 +68,19 @@ body {
 }
 
 #home-head-one {
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center;  */
     width: 93%;
     font-size: 70px;
     padding: 25px;
-    text-align: center;
+    text-align: center; 
+}
+#home-head-one span{
+     font-style: normal;
+    background: linear-gradient(135deg, #fcd34d, #f97316);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 #home-para-two {
@@ -317,10 +323,15 @@ body {
 
 .gallery-right-headone {
     font-size: 45px;
-    color: blue;
     padding-bottom: 15px;
     font-family: sans-serif;
+     background: linear-gradient(135deg, #fcd34d, #f97316);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+
+
+
 
 .gallery-right-headthree {
     font-size: 25px;

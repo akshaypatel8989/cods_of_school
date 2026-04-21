@@ -169,19 +169,19 @@ body {
 /* ------SOCIAL MEDIA LOGOS------- */
 .form-part-two {
     display: flex;
-    width: 80%;
+    width: 56%;
     justify-content: space-between; /* Center icons for better mobile layout */
   
 }
 
 .form-part-two svg {
     color: white;
-    margin-right: 30px;
+    margin-right: 10px;
     font-size: 30px; /* Make icons slightly larger for better visibility */
 }
 
 .form-part-two svg:hover {
-    color: aqua;
+    color: rgb(255, 162, 0);
 }
 
 /* 
