@@ -1085,7 +1085,7 @@ img   { max-width: 100%; display: block; border-radius: 10px; }
   /* Nav: hide links, show hamburger */
 
   /* Hero adjustments */
-  .hero { padding: 3rem 0 0; }
+  .hero { padding: 1rem 0 0; }
   .hero h1 { font-size: clamp(22px, 6vw, 32px); }
   .hero-desc { font-size: 14px; }
   .hero-stats-row { gap: 1.25rem; }
@@ -1569,3 +1569,69 @@ img   { max-width: 100%; display: block; border-radius: 10px; }
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+  .hero-action-btns {
+                            display: flex;
+                            gap: .85rem;
+                            flex-wrap: wrap;
+                            margin-bottom: 1.5rem;
+                        }
+
+                        /* Shared button base */
+                        .hero-btn-download,
+                        .hero-btn-syllabus {
+                            display: inline-flex;
+                            align-items: center;
+                            gap: .5rem;
+                            padding: .72rem 1.5rem;
+                            border-radius: 8px;
+                            font-size: 14px;
+                            font-weight: 700;
+                            letter-spacing: .2px;
+                            cursor: pointer;
+                            transition: all .22s ease;
+                            text-decoration: none;
+                            white-space: nowrap;
+                        }
+
+                        /* Download button — solid purple */
+                        .hero-btn-download {
+                            background: linear-gradient(135deg, #6e49b8, #4f18a7);
+                            color: #ffffff;
+                            border: 1.5px solid transparent;
+                            box-shadow: 0 4px 18px rgba(110,73,184,.35);
+                        }
+                        .hero-btn-download:hover {
+                            background: linear-gradient(135deg, #fcd34d, #f97316);
+                            transform: translateY(-2px);
+                            box-shadow: 0 8px 24px rgba(110,73,184,.50);
+                        }
+
+                        /* Syllabus button — outlined */
+                        .hero-btn-syllabus {
+                            background: transparent;
+                            color: #ffffff;
+                            border: 1.5px solid rgba(255,255,255,.40);
+                        }
+                        .hero-btn-syllabus:hover {
+                            background: rgba(255,255,255,.10);
+                            border-color: rgba(255,255,255,.75);
+                            transform: translateY(-2px);
+                        }
+
+                        .btn-icon {
+                            font-size: 15px;
+                            line-height: 1;
+                        }
+
+                        /* Mobile: stack buttons */
+                        @media (max-width: 480px) {
+                            .hero-action-btns {
+                                flex-direction: column;
+                            }
+                            .hero-btn-download,
+                            .hero-btn-syllabus {
+                                width: 100%;
+                                justify-content: center;
+                            }
+                        }
